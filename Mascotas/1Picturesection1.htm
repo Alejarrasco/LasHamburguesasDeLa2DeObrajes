@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>
+Computer Associates's Report Template Builder - Mascotas Document
+</TITLE>
+</HEAD>
+<BODY ONUNLOAD="close_winrep();">
+<SCRIPT>
+var win = null;
+function close_winrep()
+{
+ if (win && !win.closed)
+ {
+  win.close();
+ }
+}
+function show_rep(rep_pict)
+{
+ if (win && !win.closed)
+ {
+  win.frames[1].location.replace(rep_pict + "_2.htm");
+  win.focus();
+  return;
+ }
+ win = window.open(rep_pict + ".htm", "RTBViewReportPicture","titlebar=no,scrollbars=yes,top=0,left=0,resizable=yes,height=350,width=400");
+}
+</SCRIPT>
+<P><IMG src='images/diagram1.jpeg' usemap ='#mapdiagram'>
+<MAP name='mapdiagram'>
+<AREA HREF="#" ONCLICK="var rep='PictureTabLkd1'; show_rep(rep);" alt='Comunicación Post-Consulta' shape='rect' coords='715,483,905,583'>
+<AREA HREF="#" ONCLICK="var rep='PictureTabLkd2'; show_rep(rep);" alt='Gestión de Atención' shape='rect' coords='455,338,645,438'>
+<AREA HREF="#" ONCLICK="var rep='PictureTabLkd3'; show_rep(rep);" alt='Registro de Clientes y Mascotas ' shape='rect' coords='195,193,385,293'>
+</MAP>
+</IMG>
+</P>
+</BODY>
+</HTML>
