@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>
+Computer Associates's Report Template Builder - Mascotas Document
+</TITLE>
+</HEAD>
+<BODY ONUNLOAD="close_winrep();">
+<SCRIPT>
+var win = null;
+function close_winrep()
+{
+ if (win && !win.closed)
+ {
+  win.close();
+ }
+}
+function show_rep(rep_pict)
+{
+ if (win && !win.closed)
+ {
+  win.frames[1].location.replace(rep_pict + "_2.htm");
+  win.focus();
+  return;
+ }
+ win = window.open(rep_pict + ".htm", "RTBViewReportPicture","titlebar=no,scrollbars=yes,top=0,left=0,resizable=yes,height=350,width=400");
+}
+</SCRIPT>
+<P><IMG src='images/diagram0.jpeg' usemap ='#mapdiagram'>
+<MAP name='mapdiagram'>
+<AREA HREF="#" ONCLICK="var rep='PictureTabLkd0'; show_rep(rep);" alt='Sistema GIS para soporte de CRM  en Veterinarias de Sopocachi' shape='rect' coords='365,283,725,473'>
+</MAP>
+</IMG>
+</P>
+</BODY>
+</HTML>
