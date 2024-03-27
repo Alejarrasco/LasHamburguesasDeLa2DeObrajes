@@ -1,0 +1,1002 @@
+FID,Nombre,Tipo,Nro
+0,Elgar,Park,225
+1,Waywood,Hill,283
+2,Washington,Place,567
+3,Onsgard,Point,301
+4,Larry,Junction,171
+5,Quincy,Junction,315
+6,Merrick,Alley,898
+7,Scofield,Lane,828
+8,Reindahl,Park,494
+9,Elgar,Park,225
+10,Sugar,Terrace,113
+11,Lakewood,Lane,610
+12,Grim,Hill,498
+13,Buena Vista,Court,499
+14,Helena,Drive,849
+15,Forest,Alley,845
+16,Waubesa,Avenue,354
+17,Sommers,Terrace,345
+18,Portage,Alley,678
+19,Vera,Park,968
+20,Fordem,Point,876
+21,Leroy,Center,800
+22,Corry,Alley,528
+23,Acker,Park,928
+24,Johnson,Junction,900
+25,Huxley,Lane,701
+26,Bay,Crossing,872
+27,Arkansas,Lane,611
+28,Union,Junction,528
+29,Riverside,Crossing,493
+30,Northport,Court,765
+31,Monterey,Alley,379
+32,Summit,Hill,930
+33,Sunbrook,Center,610
+34,Northport,Drive,877
+35,3rd,Terrace,370
+36,Hermina,Point,195
+37,Oak Valley,Court,271
+38,Sunbrook,Parkway,887
+39,Dovetail,Trail,204
+40,Dorton,Plaza,853
+41,Donald,Lane,716
+42,Westridge,Parkway,620
+43,Village Green,Pass,658
+44,Evergreen,Alley,730
+45,Eagan,Way,389
+46,4th,Trail,443
+47,Kingsford,Junction,849
+48,Oak,Alley,962
+49,Moose,Trail,610
+50,Crest Line,Point,680
+51,Corscot,Parkway,128
+52,Sunnyside,Court,767
+53,Westerfield,Junction,273
+54,Pennsylvania,Crossing,763
+55,Pleasure,Plaza,734
+56,Darwin,Drive,574
+57,Ridgeview,Way,590
+58,Erie,Drive,443
+59,Meadow Valley,Hill,969
+60,Sunbrook,Road,673
+61,Chinook,Parkway,751
+62,Northwestern,Street,800
+63,Mesta,Hill,631
+64,Northridge,Road,378
+65,Declaration,Park,767
+66,Rigney,Avenue,709
+67,Raven,Crossing,474
+68,Anniversary,Pass,258
+69,Annamark,Hill,467
+70,Ridgeview,Way,938
+71,Cordelia,Terrace,326
+72,Eastwood,Court,937
+73,Basil,Terrace,995
+74,Comanche,Lane,328
+75,Donald,Trail,799
+76,Manley,Pass,266
+77,Cordelia,Terrace,880
+78,Merchant,Avenue,153
+79,Doe Crossing,Circle,280
+80,Pennsylvania,Place,846
+81,Ilene,Avenue,768
+82,East,Avenue,726
+83,Merchant,Court,739
+84,Birchwood,Court,935
+85,Morningstar,Hill,490
+86,Doe Crossing,Road,434
+87,Anniversary,Junction,496
+88,Cambridge,Trail,587
+89,Northland,Circle,795
+90,Eggendart,Hill,576
+91,Waxwing,Pass,331
+92,Comanche,Place,348
+93,Darwin,Crossing,854
+94,Emmet,Lane,845
+95,6th,Street,901
+96,Kings,Parkway,319
+97,Duke,Alley,731
+98,Texas,Center,713
+99,Welch,Court,508
+100,Westerfield,Park,431
+101,Evergreen,Circle,872
+102,Alpine,Circle,176
+103,Briar Crest,Drive,316
+104,Rigney,Avenue,372
+105,Kim,Drive,966
+106,North,Park,539
+107,Manufacturers,Trail,177
+108,Hermina,Circle,932
+109,Weeping Birch,Plaza,852
+110,Main,Parkway,867
+111,Fuller,Lane,362
+112,Corben,Circle,763
+113,Norway Maple,Parkway,825
+114,Mifflin,Crossing,467
+115,Bunker Hill,Street,711
+116,Moose,Street,521
+117,Marquette,Road,109
+118,Crest Line,Plaza,945
+119,Rigney,Lane,850
+120,Welch,Road,255
+121,Russell,Crossing,673
+122,Mendota,Terrace,331
+123,Dunning,Lane,591
+124,Green Ridge,Terrace,828
+125,Bayside,Lane,334
+126,Pleasure,Pass,749
+127,Johnson,Avenue,226
+128,Raven,Place,872
+129,Lyons,Street,873
+130,Drewry,Lane,606
+131,Mayfield,Plaza,344
+132,Vera,Pass,840
+133,Old Gate,Pass,834
+134,Sutherland,Terrace,967
+135,Welch,Court,815
+136,Lyons,Junction,840
+137,Fair Oaks,Drive,357
+138,Saint Paul,Plaza,224
+139,Russell,Plaza,496
+140,Crest Line,Trail,879
+141,Surrey,Crossing,466
+142,Eastwood,Hill,348
+143,Thackeray,Avenue,818
+144,Ryan,Plaza,933
+145,Leroy,Parkway,131
+146,Hallows,Drive,926
+147,Mosinee,Park,888
+148,Stone Corner,Drive,447
+149,Burrows,Circle,243
+150,Haas,Road,456
+151,Green Ridge,Way,949
+152,Norway Maple,Road,361
+153,Charing Cross,Center,289
+154,Utah,Street,377
+155,Sheridan,Circle,537
+156,Stang,Pass,519
+157,Stang,Avenue,240
+158,Grasskamp,Lane,720
+159,Spaight,Crossing,479
+160,Ludington,Hill,542
+161,Glendale,Lane,997
+162,Schurz,Junction,252
+163,Calypso,Place,540
+164,Transport,Place,418
+165,Mendota,Street,717
+166,Loeprich,Way,299
+167,Hauk,Trail,621
+168,Dakota,Terrace,987
+169,Old Shore,Place,825
+170,Bartillon,Park,661
+171,Tony,Alley,963
+172,Butterfield,Circle,943
+173,Moland,Center,476
+174,Kipling,Crossing,433
+175,Maple,Pass,102
+176,Carpenter,Point,224
+177,Northport,Park,258
+178,Brentwood,Pass,807
+179,Manitowish,Point,581
+180,Ludington,Pass,175
+181,Dawn,Road,564
+182,Cottonwood,Alley,152
+183,Hansons,Drive,366
+184,Erie,Drive,234
+185,Paget,Place,199
+186,Gina,Way,618
+187,Eagan,Avenue,945
+188,Village Green,Hill,747
+189,Longview,Street,841
+190,Thierer,Parkway,353
+191,6th,Place,661
+192,Graedel,Lane,121
+193,Pearson,Drive,938
+194,Dryden,Center,885
+195,Autumn Leaf,Street,610
+196,New Castle,Street,434
+197,Susan,Junction,334
+198,Anzinger,Junction,619
+199,Brickson Park,Road,903
+200,Monica,Pass,287
+201,Declaration,Crossing,549
+202,Arapahoe,Pass,644
+203,Granby,Court,574
+204,Spaight,Parkway,678
+205,Charing Cross,Place,957
+206,Stang,Plaza,370
+207,Monterey,Drive,333
+208,Leroy,Hill,628
+209,Sunfield,Junction,333
+210,Ruskin,Point,890
+211,Rowland,Parkway,447
+212,6th,Drive,579
+213,Havey,Hill,446
+214,Burning Wood,Lane,444
+215,Orin,Avenue,574
+216,Autumn Leaf,Hill,785
+217,High Crossing,Circle,910
+218,Schmedeman,Lane,826
+219,Reindahl,Park,922
+220,Banding,Terrace,478
+221,Lawn,Road,806
+222,Rutledge,Street,402
+223,Melby,Court,982
+224,Melrose,Hill,186
+225,Oxford,Road,581
+226,Sage,Point,137
+227,Fairfield,Terrace,718
+228,Center,Road,299
+229,Granby,Circle,421
+230,Mcguire,Drive,640
+231,Crest Line,Parkway,478
+232,Fremont,Plaza,460
+233,Lukken,Alley,757
+234,Meadow Vale,Court,553
+235,Ridgeview,Park,162
+236,Northfield,Place,845
+237,Homewood,Way,777
+238,Claremont,Park,524
+239,Shasta,Drive,388
+240,Kensington,Center,258
+241,Esker,Point,422
+242,Grasskamp,Trail,690
+243,Lotheville,Pass,788
+244,New Castle,Road,809
+245,Artisan,Park,190
+246,Fremont,Place,216
+247,5th,Crossing,961
+248,Raven,Way,983
+249,Truax,Court,294
+250,Declaration,Park,640
+251,Stang,Parkway,799
+252,Shasta,Center,536
+253,Ridge Oak,Park,380
+254,Forest Dale,Pass,845
+255,Merrick,Hill,360
+256,Summerview,Place,504
+257,Barnett,Trail,989
+258,Corscot,Place,995
+259,Garrison,Lane,935
+260,Mifflin,Street,116
+261,Gulseth,Court,881
+262,Calypso,Avenue,715
+263,Eagan,Junction,147
+264,Dayton,Center,112
+265,Carey,Trail,997
+266,Karstens,Avenue,220
+267,Valley Edge,Junction,529
+268,Grasskamp,Pass,369
+269,Randy,Center,967
+270,Forest,Way,214
+271,Gerald,Junction,817
+272,Sullivan,Junction,269
+273,Gulseth,Center,520
+274,Sutteridge,Parkway,866
+275,Westend,Parkway,466
+276,Northland,Circle,664
+277,Golf Course,Hill,981
+278,Parkside,Terrace,348
+279,Anzinger,Point,110
+280,Norway Maple,Trail,521
+281,Debs,Place,415
+282,Independence,Road,844
+283,Cascade,Drive,474
+284,Northland,Road,884
+285,Sunnyside,Lane,840
+286,Golf,Crossing,209
+287,Stuart,Drive,846
+288,Farragut,Alley,328
+289,Oak,Avenue,557
+290,Pankratz,Junction,882
+291,Crescent Oaks,Terrace,654
+292,Victoria,Circle,381
+293,Prairie Rose,Court,810
+294,Upham,Parkway,954
+295,Oriole,Trail,336
+296,Di Loreto,Circle,628
+297,Bartillon,Pass,833
+298,Valley Edge,Parkway,261
+299,Old Gate,Circle,203
+300,Miller,Alley,412
+301,Sachtjen,Circle,775
+302,Northview,Avenue,991
+303,Corscot,Pass,500
+304,Reindahl,Circle,658
+305,Scofield,Court,700
+306,Birchwood,Drive,678
+307,Mcbride,Crossing,762
+308,Hayes,Place,292
+309,Maywood,Crossing,909
+310,Bultman,Pass,386
+311,Lyons,Park,705
+312,Village Green,Point,860
+313,Becker,Center,775
+314,Garrison,Street,631
+315,Kennedy,Lane,158
+316,Muir,Avenue,942
+317,Gerald,Trail,628
+318,Elmside,Avenue,266
+319,Clemons,Drive,671
+320,Elgar,Way,403
+321,Talmadge,Center,790
+322,Esch,Road,260
+323,Division,Place,508
+324,Graedel,Center,776
+325,Schurz,Park,300
+326,Kings,Avenue,421
+327,Transport,Lane,744
+328,Continental,Crossing,980
+329,Mallory,Alley,148
+330,Schlimgen,Pass,404
+331,Gateway,Plaza,852
+332,Petterle,Point,528
+333,Kedzie,Parkway,172
+334,Bay,Junction,491
+335,Towne,Avenue,799
+336,Oxford,Plaza,349
+337,Wayridge,Junction,568
+338,Glendale,Court,353
+339,Straubel,Court,505
+340,Bellgrove,Plaza,450
+341,Golden Leaf,Trail,739
+342,Summit,Crossing,238
+343,Di Loreto,Pass,918
+344,Gale,Plaza,404
+345,Towne,Park,828
+346,Kensington,Avenue,744
+347,Lerdahl,Junction,547
+348,Grover,Junction,363
+349,Sherman,Hill,323
+350,Debs,Hill,103
+351,School,Center,810
+352,Bartelt,Terrace,182
+353,Hoepker,Terrace,513
+354,Pond,Drive,638
+355,Clove,Court,395
+356,Prairieview,Crossing,637
+357,Chive,Junction,554
+358,Melody,Street,460
+359,Del Mar,Road,233
+360,Prairieview,Terrace,259
+361,Mitchell,Hill,402
+362,Swallow,Court,946
+363,Sauthoff,Alley,104
+364,Hallows,Lane,576
+365,Mosinee,Crossing,619
+366,Toban,Avenue,461
+367,Erie,Drive,675
+368,Kensington,Street,279
+369,Arizona,Drive,629
+370,Summerview,Pass,846
+371,Loomis,Alley,708
+372,Ronald Regan,Plaza,224
+373,Ryan,Circle,848
+374,Bay,Lane,684
+375,Charing Cross,Alley,282
+376,Annamark,Junction,396
+377,Red Cloud,Circle,801
+378,Briar Crest,Place,208
+379,Helena,Drive,178
+380,Lakewood Gardens,Avenue,624
+381,Lien,Point,513
+382,7th,Pass,293
+383,Milwaukee,Road,267
+384,Thompson,Drive,514
+385,Old Shore,Parkway,794
+386,Summit,Park,789
+387,Orin,Crossing,611
+388,Northview,Circle,945
+389,Crowley,Place,620
+390,Golden Leaf,Pass,493
+391,Karstens,Street,347
+392,Charing Cross,Center,886
+393,Becker,Parkway,355
+394,Drewry,Pass,139
+395,Sutteridge,Park,350
+396,Sachs,Place,699
+397,Shasta,Junction,732
+398,Golden Leaf,Center,804
+399,Rieder,Park,726
+400,Eliot,Court,671
+401,Acker,Park,719
+402,Katie,Drive,884
+403,Veith,Terrace,206
+404,Evergreen,Hill,504
+405,Kings,Avenue,311
+406,Mitchell,Road,439
+407,Heath,Crossing,608
+408,Burning Wood,Road,563
+409,Dwight,Avenue,854
+410,Arizona,Point,533
+411,Barby,Circle,230
+412,Columbus,Terrace,210
+413,Hansons,Point,342
+414,Lillian,Plaza,436
+415,Fulton,Point,496
+416,Parkside,Trail,678
+417,Express,Trail,945
+418,Dahle,Road,407
+419,Charing Cross,Point,957
+420,Anzinger,Junction,835
+421,Northview,Place,475
+422,Northport,Hill,758
+423,Caliangt,Way,464
+424,Nelson,Court,682
+425,Springview,Junction,576
+426,American,Park,388
+427,Monument,Court,340
+428,Merrick,Trail,215
+429,Namekagon,Circle,827
+430,Sage,Point,494
+431,Portage,Parkway,234
+432,Moose,Pass,530
+433,High Crossing,Pass,622
+434,Nova,Trail,587
+435,Prentice,Way,670
+436,La Follette,Terrace,390
+437,Bartillon,Drive,948
+438,Arapahoe,Park,227
+439,Monument,Circle,276
+440,Tomscot,Plaza,906
+441,Shopko,Junction,789
+442,Prairie Rose,Plaza,519
+443,Mcguire,Drive,813
+444,Oak,Terrace,961
+445,Crescent Oaks,Circle,883
+446,Thompson,Pass,603
+447,Pierstorff,Center,238
+448,Fuller,Park,198
+449,Dexter,Plaza,988
+450,Stephen,Road,446
+451,Washington,Trail,437
+452,Claremont,Way,898
+453,Lighthouse Bay,Parkway,702
+454,Saint Paul,Way,503
+455,Shoshone,Drive,145
+456,Sutteridge,Point,239
+457,Springs,Terrace,681
+458,Portage,Junction,963
+459,Bellgrove,Crossing,783
+460,Victoria,Avenue,375
+461,Steensland,Point,619
+462,Shelley,Street,254
+463,Vermont,Park,244
+464,Moulton,Way,733
+465,Gulseth,Center,502
+466,Blue Bill Park,Park,535
+467,Pleasure,Trail,549
+468,Wayridge,Drive,317
+469,Village,Plaza,132
+470,Aberg,Junction,468
+471,Valley Edge,Pass,227
+472,Sloan,Junction,744
+473,Monument,Avenue,759
+474,Lighthouse Bay,Place,681
+475,Norway Maple,Center,932
+476,Lyons,Court,319
+477,Graedel,Pass,454
+478,Jana,Avenue,951
+479,Monterey,Lane,629
+480,Continental,Circle,722
+481,Jana,Place,363
+482,Eagle Crest,Place,717
+483,Maryland,Street,948
+484,Emmet,Park,365
+485,Memorial,Crossing,445
+486,Monica,Avenue,796
+487,Valley Edge,Way,412
+488,Corben,Point,293
+489,Loftsgordon,Pass,739
+490,Melody,Drive,886
+491,Milwaukee,Center,369
+492,Warbler,Street,178
+493,Hovde,Place,648
+494,Hooker,Park,182
+495,Carey,Avenue,323
+496,Iowa,Drive,642
+497,Scott,Court,464
+498,Luster,Hill,189
+499,Rigney,Pass,775
+500,Beilfuss,Road,433
+501,Esch,Avenue,503
+502,Charing Cross,Crossing,625
+503,Badeau,Court,940
+504,Waywood,Hill,473
+505,Kropf,Junction,314
+506,5th,Junction,248
+507,Tennyson,Pass,538
+508,Mcbride,Drive,982
+509,Tomscot,Avenue,748
+510,Vermont,Circle,646
+511,Bellgrove,Street,914
+512,Old Shore,Pass,615
+513,Golf,Point,293
+514,Carberry,Road,294
+515,Hanson,Park,383
+516,Alpine,Place,823
+517,Prairieview,Crossing,972
+518,Lukken,Road,745
+519,Arapahoe,Drive,266
+520,Holmberg,Park,827
+521,Westport,Hill,602
+522,Esker,Parkway,587
+523,Hazelcrest,Terrace,751
+524,Wayridge,Trail,516
+525,Sundown,Plaza,901
+526,Hoepker,Hill,711
+527,Monterey,Way,718
+528,John Wall,Pass,357
+529,Talisman,Alley,721
+530,School,Plaza,101
+531,Scott,Terrace,196
+532,6th,Point,934
+533,Anniversary,Pass,443
+534,Havey,Terrace,248
+535,Saint Paul,Trail,791
+536,Helena,Lane,277
+537,Kenwood,Circle,718
+538,Tennessee,Parkway,281
+539,Dayton,Lane,915
+540,Wayridge,Drive,270
+541,Hagan,Place,390
+542,Claremont,Alley,807
+543,Towne,Trail,551
+544,Elgar,Street,156
+545,Merrick,Crossing,784
+546,Elka,Court,488
+547,Erie,Alley,780
+548,Buhler,Crossing,777
+549,Dryden,Way,280
+550,Fairfield,Plaza,946
+551,Graceland,Road,162
+552,Forster,Terrace,796
+553,Ridgeway,Junction,330
+554,Old Gate,Street,500
+555,Lakewood,Alley,830
+556,Forster,Road,769
+557,Thierer,Terrace,964
+558,Barby,Hill,405
+559,Veith,Center,306
+560,Sage,Drive,866
+561,Cambridge,Park,278
+562,Comanche,Place,629
+563,Lakewood,Pass,233
+564,Ronald Regan,Plaza,832
+565,Hermina,Trail,254
+566,Glendale,Trail,437
+567,Farragut,Alley,513
+568,Shelley,Trail,739
+569,Upham,Pass,326
+570,Nancy,Crossing,875
+571,Jenna,Avenue,116
+572,Gina,Drive,699
+573,Lunder,Way,124
+574,Surrey,Way,167
+575,Nova,Trail,844
+576,Crescent Oaks,Way,277
+577,Bellgrove,Hill,949
+578,Stephen,Terrace,309
+579,Service,Hill,334
+580,Scoville,Trail,752
+581,6th,Park,118
+582,Merchant,Place,636
+583,Lakewood,Park,482
+584,Schiller,Circle,211
+585,Jana,Parkway,308
+586,Muir,Trail,357
+587,Sunnyside,Circle,585
+588,Barby,Junction,858
+589,Commercial,Plaza,759
+590,Dakota,Junction,386
+591,Rockefeller,Trail,577
+592,Debs,Street,795
+593,Maywood,Hill,471
+594,Fisk,Drive,622
+595,Hovde,Lane,811
+596,Mitchell,Hill,209
+597,Homewood,Trail,891
+598,Fair Oaks,Pass,438
+599,Lindbergh,Trail,820
+600,Bobwhite,Point,252
+601,Roxbury,Road,894
+602,Fallview,Terrace,153
+603,Hanover,Junction,202
+604,Shopko,Park,844
+605,Lindbergh,Alley,535
+606,Riverside,Drive,371
+607,Schurz,Parkway,479
+608,Hooker,Pass,806
+609,Larry,Way,884
+610,Karstens,Parkway,916
+611,Lakewood Gardens,Street,863
+612,Harbort,Avenue,536
+613,Kipling,Terrace,135
+614,Red Cloud,Lane,399
+615,Grayhawk,Circle,398
+616,Brown,Place,431
+617,Blaine,Center,250
+618,Jackson,Terrace,861
+619,Summerview,Circle,424
+620,Main,Lane,560
+621,Golden Leaf,Terrace,881
+622,Crowley,Park,686
+623,Northport,Lane,479
+624,Chive,Court,812
+625,Towne,Lane,467
+626,Drewry,Circle,406
+627,Fuller,Lane,437
+628,Superior,Center,436
+629,Starling,Lane,835
+630,Melrose,Court,873
+631,Stoughton,Lane,374
+632,Montana,Pass,865
+633,Jenna,Circle,275
+634,Chive,Road,246
+635,Hintze,Place,954
+636,Westridge,Court,670
+637,Spohn,Road,366
+638,Hoepker,Center,128
+639,Mcguire,Crossing,761
+640,Twin Pines,Junction,953
+641,Nancy,Circle,215
+642,Basil,Pass,578
+643,Mcbride,Drive,936
+644,Chinook,Road,845
+645,Gina,Drive,627
+646,Holy Cross,Parkway,284
+647,Bunker Hill,Hill,294
+648,Brentwood,Terrace,988
+649,Sachs,Plaza,893
+650,Cherokee,Court,886
+651,Sugar,Way,543
+652,Drewry,Road,453
+653,Novick,Terrace,474
+654,Cambridge,Court,824
+655,Crescent Oaks,Road,378
+656,Arizona,Center,353
+657,Talmadge,Street,479
+658,North,Alley,897
+659,Mandrake,Road,677
+660,Schurz,Center,529
+661,Montana,Alley,445
+662,Katie,Lane,379
+663,Southridge,Pass,782
+664,Bobwhite,Hill,706
+665,Waywood,Hill,405
+666,Melody,Parkway,168
+667,Chinook,Hill,301
+668,Delladonna,Plaza,453
+669,Dahle,Lane,961
+670,3rd,Hill,482
+671,Westend,Avenue,275
+672,Myrtle,Pass,320
+673,School,Trail,234
+674,Toban,Plaza,123
+675,Grim,Park,935
+676,Badeau,Park,631
+677,Maryland,Pass,564
+678,Commercial,Center,123
+679,Carberry,Place,995
+680,Johnson,Avenue,299
+681,4th,Alley,240
+682,Oakridge,Avenue,344
+683,Rieder,Lane,274
+684,Jackson,Point,358
+685,Kenwood,Place,292
+686,Heath,Court,489
+687,Melrose,Circle,666
+688,Kinsman,Parkway,746
+689,Morning,Road,139
+690,Nova,Road,221
+691,Kim,Street,758
+692,Park Meadow,Street,747
+693,Spohn,Circle,288
+694,Porter,Junction,722
+695,Fremont,Road,724
+696,Stone Corner,Crossing,907
+697,Susan,Parkway,311
+698,Trailsway,Alley,441
+699,Forster,Center,207
+700,International,Junction,958
+701,Beilfuss,Point,952
+702,Sutherland,Court,209
+703,Prentice,Crossing,616
+704,Dennis,Circle,765
+705,Thierer,Avenue,890
+706,Judy,Pass,256
+707,Fuller,Circle,182
+708,8th,Way,604
+709,Redwing,Road,231
+710,Anderson,Center,645
+711,Village Green,Place,186
+712,Ridgeway,Plaza,355
+713,Schurz,Lane,801
+714,Toban,Junction,297
+715,Thierer,Center,783
+716,Mallard,Pass,805
+717,Ludington,Pass,229
+718,Maple Wood,Alley,125
+719,Nevada,Plaza,883
+720,Anthes,Crossing,190
+721,Pond,Road,932
+722,Carpenter,Place,988
+723,3rd,Parkway,153
+724,Farmco,Plaza,473
+725,Comanche,Trail,320
+726,Hovde,Place,559
+727,7th,Junction,373
+728,Arrowood,Lane,207
+729,Lakewood,Plaza,488
+730,Jenifer,Circle,363
+731,School,Avenue,639
+732,Maywood,Hill,536
+733,Ridge Oak,Junction,105
+734,Charing Cross,Pass,113
+735,Banding,Drive,269
+736,School,Road,310
+737,Bluejay,Court,329
+738,Dottie,Terrace,618
+739,Upham,Center,858
+740,Becker,Plaza,914
+741,Kipling,Lane,451
+742,Sommers,Plaza,457
+743,Esch,Circle,348
+744,Ridge Oak,Hill,243
+745,Gateway,Pass,454
+746,Bowman,Road,449
+747,Sherman,Parkway,479
+748,Bunting,Hill,674
+749,Sheridan,Court,366
+750,Farmco,Alley,174
+751,Bobwhite,Hill,910
+752,John Wall,Point,788
+753,Cascade,Circle,368
+754,Mccormick,Circle,422
+755,Annamark,Drive,259
+756,Meadow Ridge,Avenue,324
+757,Claremont,Point,850
+758,Killdeer,Junction,477
+759,Thackeray,Plaza,454
+760,1st,Street,470
+761,Vera,Circle,805
+762,Cherokee,Park,811
+763,Stang,Terrace,694
+764,Jay,Road,250
+765,Mallard,Hill,862
+766,Bluestem,Hill,280
+767,Calypso,Place,718
+768,Fremont,Crossing,569
+769,Mesta,Avenue,448
+770,Troy,Junction,128
+771,Messerschmidt,Drive,640
+772,Brickson Park,Avenue,469
+773,Warbler,Lane,514
+774,2nd,Lane,673
+775,Schiller,Pass,551
+776,Sundown,Plaza,676
+777,Mosinee,Point,255
+778,Loeprich,Junction,613
+779,Corscot,Lane,102
+780,Knutson,Point,380
+781,Fairfield,Terrace,638
+782,Rieder,Center,367
+783,Gerald,Alley,138
+784,Susan,Road,601
+785,Garrison,Lane,870
+786,Orin,Place,728
+787,Norway Maple,Junction,867
+788,Scott,Street,530
+789,Forster,Avenue,823
+790,Columbus,Junction,269
+791,Brickson Park,Court,465
+792,Ludington,Pass,888
+793,Dorton,Point,457
+794,Susan,Parkway,237
+795,4th,Lane,412
+796,Evergreen,Court,498
+797,Mayfield,Street,799
+798,Kropf,Center,252
+799,Darwin,Parkway,666
+800,Laurel,Plaza,743
+801,Fordem,Parkway,880
+802,Larry,Trail,793
+803,Anzinger,Park,214
+804,Maple,Court,490
+805,Hollow Ridge,Road,647
+806,Lukken,Trail,733
+807,Gale,Avenue,444
+808,Eggendart,Street,376
+809,1st,Center,608
+810,Clyde Gallagher,Circle,929
+811,Fieldstone,Trail,399
+812,Brown,Parkway,761
+813,Elka,Parkway,159
+814,Ridge Oak,Park,807
+815,Westend,Circle,888
+816,Becker,Way,221
+817,Sutteridge,Court,472
+818,Talisman,Street,194
+819,Esch,Lane,707
+820,Old Shore,Plaza,217
+821,Harbort,Lane,243
+822,Northridge,Pass,352
+823,Hazelcrest,Plaza,460
+824,Autumn Leaf,Junction,179
+825,Carey,Circle,425
+826,Forster,Avenue,860
+827,Portage,Point,993
+828,Mesta,Alley,218
+829,Comanche,Point,434
+830,Transport,Way,226
+831,Kedzie,Plaza,117
+832,Mccormick,Center,613
+833,Sheridan,Alley,741
+834,Comanche,Circle,836
+835,Arizona,Road,270
+836,Sachs,Plaza,721
+837,Esch,Lane,859
+838,Tony,Junction,410
+839,Sheridan,Circle,198
+840,Hoard,Drive,785
+841,Hudson,Road,577
+842,Melrose,Avenue,347
+843,Swallow,Park,734
+844,Lyons,Park,401
+845,Heffernan,Parkway,337
+846,Kenwood,Park,468
+847,Ridge Oak,Place,541
+848,Bunting,Crossing,356
+849,Manitowish,Court,900
+850,Elgar,Center,962
+851,8th,Park,231
+852,Haas,Place,263
+853,School,Terrace,463
+854,Grover,Trail,253
+855,Roxbury,Court,384
+856,Continental,Avenue,669
+857,Bluestem,Court,267
+858,Kedzie,Road,363
+859,Grover,Road,731
+860,Montana,Crossing,378
+861,Milwaukee,Center,215
+862,Nevada,Junction,465
+863,John Wall,Terrace,748
+864,Crowley,Center,698
+865,Mesta,Street,541
+866,Eastwood,Crossing,983
+867,Mallory,Alley,901
+868,Fisk,Circle,614
+869,Mitchell,Park,954
+870,Cardinal,Road,785
+871,Canary,Crossing,441
+872,Loftsgordon,Plaza,597
+873,Dahle,Park,680
+874,Oriole,Junction,594
+875,Mallory,Avenue,806
+876,Grayhawk,Circle,983
+877,Blaine,Place,585
+878,Stoughton,Hill,696
+879,Hovde,Plaza,843
+880,Paget,Crossing,582
+881,Hagan,Crossing,723
+882,Warrior,Plaza,655
+883,Riverside,Plaza,125
+884,Summerview,Point,885
+885,Farwell,Center,115
+886,Quincy,Lane,832
+887,Lyons,Park,909
+888,Cambridge,Street,359
+889,Kedzie,Hill,939
+890,Vidon,Court,404
+891,Cambridge,Terrace,721
+892,Old Shore,Crossing,348
+893,Killdeer,Terrace,943
+894,Dottie,Park,335
+895,Fordem,Crossing,571
+896,Old Gate,Parkway,935
+897,Melby,Street,565
+898,Green,Point,473
+899,Hazelcrest,Lane,387
+900,Mayfield,Trail,432
+901,Kennedy,Pass,998
+902,Gina,Drive,891
+903,Eagle Crest,Road,546
+904,Russell,Hill,639
+905,Manufacturers,Trail,581
+906,Arizona,Pass,373
+907,Hayes,Junction,869
+908,Drewry,Parkway,286
+909,Fremont,Trail,322
+910,Loftsgordon,Center,163
+911,Mayer,Street,373
+912,Schmedeman,Place,871
+913,Bashford,Lane,734
+914,Manitowish,Alley,152
+915,Kropf,Crossing,234
+916,Old Gate,Point,988
+917,Messerschmidt,Place,596
+918,Twin Pines,Way,592
+919,Forest Run,Circle,563
+920,Duke,Circle,971
+921,Jana,Court,647
+922,Anthes,Lane,199
+923,Dryden,Parkway,928
+924,Kedzie,Avenue,973
+925,2nd,Court,674
+926,Colorado,Trail,968
+927,Jay,Lane,700
+928,Toban,Terrace,620
+929,Bultman,Terrace,186
+930,New Castle,Circle,769
+931,Goodland,Point,505
+932,Stephen,Trail,357
+933,Hanson,Plaza,922
+934,Arkansas,Plaza,881
+935,Fordem,Trail,130
+936,Crest Line,Drive,668
+937,Emmet,Parkway,117
+938,Namekagon,Terrace,342
+939,Prentice,Plaza,784
+940,Old Shore,Pass,137
+941,Stang,Parkway,952
+942,Holmberg,Plaza,912
+943,Vernon,Way,334
+944,Almo,Terrace,189
+945,Algoma,Hill,949
+946,Browning,Pass,473
+947,Saint Paul,Hill,693
+948,Sunfield,Center,244
+949,Hollow Ridge,Drive,612
+950,North,Alley,467
+951,Jenifer,Trail,206
+952,Vera,Circle,171
+953,Texas,Crossing,528
+954,Nelson,Junction,647
+955,Erie,Hill,994
+956,Susan,Lane,219
+957,Raven,Avenue,213
+958,Huxley,Circle,759
+959,Veith,Road,634
+960,Eastlawn,Hill,293
+961,Brown,Drive,660
+962,Rockefeller,Junction,938
+963,Scoville,Hill,119
+964,Alpine,Drive,612
+965,Springview,Court,349
+966,Kensington,Center,512
+967,Graedel,Trail,201
+968,Kedzie,Terrace,190
+969,Mendota,Point,579
+970,Oxford,Street,808
+971,Cambridge,Parkway,513
+972,High Crossing,Park,567
+973,Saint Paul,Circle,116
+974,Independence,Drive,533
+975,Luster,Way,725
+976,Emmet,Hill,386
+977,Marcy,Road,614
+978,Mayfield,Drive,704
+979,Pleasure,Trail,338
+980,Shoshone,Street,298
+981,Green,Pass,365
+982,Buena Vista,Place,186
+983,Sauthoff,Street,785
+984,Comanche,Terrace,484
+985,Lyons,Circle,657
+986,Mayfield,Alley,439
+987,Bunker Hill,Circle,510
+988,Little Fleur,Alley,554
+989,Talmadge,Lane,796
+990,Iowa,Road,671
+991,Blaine,Plaza,984
+992,Waywood,Place,380
+993,Everett,Terrace,646
+994,Duke,Pass,289
+995,Becker,Lane,926
+996,Hoffman,Avenue,943
+997,Hovde,Park,716
+998,Mcguire,Hill,916
+999,Lunder,Parkway,158
+1000,Lighthouse Bay,Point,667
