@@ -1,1 +1,5 @@
 *.lock
+
+# ignore JetBrains IDE files
+.idea/
+.segundoproyecto/idea/
