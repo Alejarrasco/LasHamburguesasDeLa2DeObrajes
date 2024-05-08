@@ -71,7 +71,7 @@ def generate_tree_image(df, target_column):
     # Visualize decision tree
     plt.figure(figsize=(20, 10))
     cnames = [str(i) for i in clf.classes_]
-    plot_tree(clf, filled=True, feature_names=X.columns, class_names=cnames, rounded=True)
+    plot_tree(clf, filled=True, feature_names=X.columns, class_names=cnames, rounded=True, max_depth=5)
     image_file_path = "temp_decision_tree.png"
     plt.savefig(image_file_path)
 
