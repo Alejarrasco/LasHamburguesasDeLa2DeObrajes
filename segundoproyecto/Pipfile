@@ -10,6 +10,7 @@ matplotlib = "*"
 scikit-learn = "*"
 seaborn = "*"
 fastapi = "*"
+dtreeviz = "*"
 
 [dev-packages]
 
