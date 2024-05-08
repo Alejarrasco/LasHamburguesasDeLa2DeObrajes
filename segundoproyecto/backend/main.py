@@ -6,6 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 import base64
+from dtreeviz.trees import dtreeviz
 
 app = FastAPI()
 # Add CORS middleware
@@ -78,13 +79,13 @@ def generate_tree_image(df, target_column):
     clf.fit(X, y)
     
     # Visualize decision tree
-    plt.figure(figsize=(20, 10))
-    cnames = [str(i) for i in clf.classes_]
-    plot_tree(clf, filled=True, feature_names=X.columns, class_names=cnames, rounded=True)
-    image_file_path = "temp_decision_tree.png"
-    plt.savefig(image_file_path)
+    viz = dtreeviz(clf, X, y,
+                    target_name=target_column,
+                    feature_names=X.columns,
+                    class_names=[str(i) for i in clf.classes_])
+    viz.save("temp_decision_tree.svg")
 
-    return image_file_path
+    return "temp_decision_tree.svg"
 
 def remove_temp_files():
     print("Removing temporary files")
