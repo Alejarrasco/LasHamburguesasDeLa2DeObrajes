@@ -1,4 +1,5 @@
 from fastapi import FastAPI, File, HTTPException, UploadFile, Query
+from fastapi.middleware.cors import CORSMiddleware
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import pandas as pd
@@ -7,6 +8,14 @@ import os
 import base64
 
 app = FastAPI()
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Allows CORS for this domain
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 async def load_data_file(datafile):
     print("Uploading csv as temp file")
