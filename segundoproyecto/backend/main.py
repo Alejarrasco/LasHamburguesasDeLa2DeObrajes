@@ -6,7 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 import base64
-from dtreeviz.trees import dtreeviz
+import dtreeviz
 
 app = FastAPI()
 # Add CORS middleware
@@ -72,19 +72,23 @@ def preprocess_data(df, target_column):
     return df
 
 def generate_tree_image(df, target_column):
+    print("Training decision tree...")
     # Train decision tree
     X = df.drop(columns=[target_column])
     y = df[target_column]
-    clf = DecisionTreeClassifier()
+    clf = DecisionTreeClassifier(max_depth=5)
     clf.fit(X, y)
     
+    print("Generating decision tree visualization...")
     # Visualize decision tree
-    viz = dtreeviz(clf, X, y,
+    viz = dtreeviz.model(clf, X, y,
                     target_name=target_column,
                     feature_names=X.columns,
-                    class_names=[str(i) for i in clf.classes_])
-    viz.save("temp_decision_tree.svg")
-
+                    class_names=[str(i) for i in clf.classes_],
+                    )
+    v = viz.view()     # render as SVG into internal object 
+    v.save("temp_decision_tree.svg")
+    print("Decision tree visualization saved as temp_decision_tree.svg")
     return "temp_decision_tree.svg"
 
 def remove_temp_files():
@@ -109,11 +113,12 @@ async def process_csv(file: UploadFile = File(...), target_column: str = Query(.
         with open(image_path, "rb") as image_file:
             image_data = base64.b64encode(image_file.read()).decode("utf-8")
 
-        # Remove temporary files
-        remove_temp_files()
-
     except Exception as e:
+        print(e)
         raise HTTPException(status_code=400, detail=str(e))
+    
+    finally:
+        remove_temp_files()
 
     return {"decision_tree": image_data}
 

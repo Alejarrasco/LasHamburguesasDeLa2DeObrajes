@@ -11,7 +11,7 @@
 
     <div v-if="columns.length > 0" class="mt-4">
       <select v-model="selectedColumn" class="border border-gray-300 rounded p-2">
-        <option disabled value="">Seleccione una columna</option>
+        <option disabled value="">Seleccione una columna para el target</option>
         <option v-for="column in columns" :key="column" :value="column">
           {{ column }}
         </option>
@@ -23,8 +23,8 @@
     </button>
 
     <!-- Visualización de la imagen del árbol de decisiones -->
-    <div v-if="decisionTreeImage" class="mt-4">
-      <img :src="decisionTreeImage" alt="Árbol de Decisiones" class="max-w-full h-auto rounded shadow-md"/>
+    <div v-if="decisionTreeImage" class="mt-4 w-full">
+      <img :src="decisionTreeImage" alt="Árbol de Decisiones" class="w-full h-auto rounded shadow-md"/>
     </div>
   </div>
 </template>
@@ -71,7 +71,7 @@ export default defineComponent({
 
         axios.post(url, formData)
         .then(response => {
-          decisionTreeImage.value = `data:image/png;base64,${response.data.decision_tree}`;
+          decisionTreeImage.value = `data:image/svg+xml;base64,${response.data.decision_tree}`;
         })
         .catch(error => {
           console.error('Error uploading file:', error);
