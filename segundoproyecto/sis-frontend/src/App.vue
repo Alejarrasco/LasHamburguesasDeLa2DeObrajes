@@ -22,9 +22,15 @@
       Subir datos
     </button>
 
-    <!-- Visualización de la imagen del árbol de decisiones -->
+    <div v-if="isLoading" class="mt-4 flex items-center justify-center">
+      <svg class="animate-spin h-8 w-8 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </div>
+
     <div v-if="decisionTreeImage" class="mt-4 w-full">
-      <img :src="decisionTreeImage" alt="Árbol de Decisiones" class="w-full h-auto rounded shadow-md"/>
+      <ZoomImage :src="decisionTreeImage" />
     </div>
   </div>
 </template>
@@ -34,17 +40,20 @@ import { defineComponent, ref } from 'vue';
 import Papa from 'papaparse';
 import axios from 'axios';
 import { DocumentIcon } from '@heroicons/vue/24/solid';
+import ZoomImage from './components/ZoomImage.vue';
 
 export default defineComponent({
   name: 'CsvUploader',
   components: {
-    DocumentIcon
+    DocumentIcon,
+    ZoomImage
   },
   setup() {
     const columns = ref<string[]>([]);
     const selectedColumn = ref('');
     const fileRef = ref<File | null>(null);
-    const decisionTreeImage = ref<string | null>(null); // Para almacenar la URL de la imagen
+    const decisionTreeImage = ref<string | null>(null);
+    const isLoading = ref(false);
 
     const handleFileUpload = (event: Event) => {
       const files = (event.target as HTMLInputElement).files;
@@ -65,6 +74,7 @@ export default defineComponent({
 
     const submitData = () => {
       if (fileRef.value && selectedColumn.value) {
+        isLoading.value = true;
         const formData = new FormData();
         formData.append('file', fileRef.value);
         const url = `http://localhost:8000/process_csv/?target_column=${encodeURIComponent(selectedColumn.value)}`;
@@ -76,13 +86,16 @@ export default defineComponent({
         .catch(error => {
           console.error('Error uploading file:', error);
           alert('Error al subir el archivo. Ver consola para detalles.');
+        })
+        .finally(() => {
+          isLoading.value = false;
         });
       } else {
         alert('Archivo o columna no seleccionados correctamente.');
       }
     };
 
-    return { columns, selectedColumn, handleFileUpload, submitData, decisionTreeImage };
+    return { columns, selectedColumn, handleFileUpload, submitData, decisionTreeImage, isLoading };
   }
 });
 </script>
