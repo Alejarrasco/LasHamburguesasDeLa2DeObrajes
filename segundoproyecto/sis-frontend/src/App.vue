@@ -32,6 +32,10 @@
     <div v-if="decisionTreeImage" class="mt-4 w-full">
       <ZoomImage :src="decisionTreeImage" />
     </div>
+
+    <div v-if="errorMessage" class="mt-4 text-red-500">
+      {{ errorMessage }}
+    </div>
   </div>
 </template>
 
@@ -54,6 +58,7 @@ export default defineComponent({
     const fileRef = ref<File | null>(null);
     const decisionTreeImage = ref<string | null>(null);
     const isLoading = ref(false);
+    const errorMessage = ref<string | null>(null);
 
     const handleFileUpload = (event: Event) => {
       const files = (event.target as HTMLInputElement).files;
@@ -75,6 +80,7 @@ export default defineComponent({
     const submitData = () => {
       if (fileRef.value && selectedColumn.value) {
         isLoading.value = true;
+        errorMessage.value = null; // Reset error message
         const formData = new FormData();
         formData.append('file', fileRef.value);
         const url = `http://localhost:8000/process_csv/?target_column=${encodeURIComponent(selectedColumn.value)}`;
@@ -85,7 +91,11 @@ export default defineComponent({
         })
         .catch(error => {
           console.error('Error uploading file:', error);
-          alert('Error al subir el archivo. Ver consola para detalles.');
+          if (error.response && error.response.data && error.response.data.detail) {
+            errorMessage.value = error.response.data.detail;
+          } else {
+            errorMessage.value = 'Error al subir el archivo. Ver consola para detalles.';
+          }
         })
         .finally(() => {
           isLoading.value = false;
@@ -95,7 +105,7 @@ export default defineComponent({
       }
     };
 
-    return { columns, selectedColumn, handleFileUpload, submitData, decisionTreeImage, isLoading };
+    return { columns, selectedColumn, handleFileUpload, submitData, decisionTreeImage, isLoading, errorMessage };
   }
 });
 </script>
