@@ -6,6 +6,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.decomposition import PCA
+from sklearn.metrics import confusion_matrix, classification_report
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
@@ -154,41 +155,46 @@ def generate_clusters_image(df, target_column, n_clusters=3):
     print("Clusters visualization saved as temp_clusters.png")
     return "temp_clusters.png"
 
-def train_multilayer_perceptron(df, target_column=None):
+def train_multilayer_perceptron(df, target_column=None, hidden_layers=2, maxiter=100):
     print("Training Multilayer Perceptron model...")
     # Train Multilayer Perceptron model
     X = df.drop(columns=[target_column])
     y = df[target_column]
     
-    clf = MLPClassifier(hidden_layer_sizes=(100, 100), max_iter=1000)
+    clf = MLPClassifier(hidden_layer_sizes=(hidden_layers, hidden_layers), max_iter=maxiter)
     clf.fit(X, y)
 
     return clf
 
-def generate_decision_boundary_image(df, target_column):
-    print("Generating decision boundary visualization...")
-
-    # Use PCA to reduce dimensions to 2D
-    X_pca, y = pca_reduction(df, target_column)
-    df_pca = pd.DataFrame(X_pca, columns=["PCA1", "PCA2"])
-    df_pca[target_column] = y
-
-    # Train Multilayer Perceptron model
-    clf = train_multilayer_perceptron(df_pca, target_column)
-    print("Training complete")
-
-    # Visualize decision boundary
-    fig, ax = plt.subplots()
-    ax.scatter(X_pca[:, 0], X_pca[:, 1], c=y, cmap='viridis')
-    ax.set_title("Decision Boundary Visualization")
-    ax.set_xlabel("PCA 1")
-    ax.set_ylabel("PCA 2")
+def generate_report(clf, X, y):
+    """
+    Generate a txt report with the weigths of each layer
+    The accuracy of the model
+    The confusion matrix
+    The classification report
+    and some headers
+    X: The features of the validation dataset
+    y: The target of the validation dataset
+    """
     
-    
+    report = "Multilayer Perceptron Report\n\n"
+    report += "Weights of each layer:\n"
+    for i, layer in enumerate(clf.coefs_):
+        report += f"Layer {i}:\n{layer}\n\n"
 
-    plt.savefig("temp_decision_boundary.png")
-    print("Decision boundary visualization saved as temp_decision_boundary.png")
-    return "temp_decision_boundary.png"
+    report += "Accuracy: " + str(clf.score(X, y)) + "\n\n"
+
+    report += "Confusion Matrix:\n"
+    report += str(confusion_matrix(y, clf.predict(X))) + "\n\n"
+
+    report += "Classification Report:\n"
+    report += classification_report(y, clf.predict(X)) + "\n\n"
+
+    # Save to a txt file
+    with open("temp_report.txt", "w") as file:
+        file.write(report)
+
+    return "temp_report.txt"
 
 
 @app.post("/decision_tree/")
@@ -240,19 +246,23 @@ async def kmeans_clusters(file: UploadFile = File(...), target_column: str = Que
     return {"clusters_image": image_data}
 
 @app.post("/multilayer-perceptron/")
-async def multilayer_perceptron(file: UploadFile = File(...), target_column: str = Query(...)):
+async def multilayer_perceptron(file: UploadFile = File(...), target_column: str = Query(...), hidden_layers: int = Query(2)):
     try:
         # Load the data
         df = await load_data_file(file)
     
         # Preprocess the data
         df = preprocess_data(df, target_column)
-        # Generate the decision boundary visualization
-        image_path = generate_decision_boundary_image(df, target_column)
 
-        # Respond with decision boundary image
-        with open(image_path, "rb") as image_file:
-            image_data = base64.b64encode(image_file.read()).decode("utf-8")
+        # Generate the txt report
+        clf = train_multilayer_perceptron(df, target_column, hidden_layers)
+        X = df.drop(columns=[target_column])
+        y = df[target_column]
+        report_path = generate_report(clf, X, y)
+
+        # Respond with report file
+        with open(report_path, "rb") as report_file:
+            report_data = base64.b64encode(report_file.read()).decode("utf-8")
 
     except Exception as e:
         print(e)
@@ -260,7 +270,7 @@ async def multilayer_perceptron(file: UploadFile = File(...), target_column: str
     
     remove_temp_files()
 
-    return {"decision_boundary": image_data}
+    return {"report": report_data}
 
 if __name__ == "__main__":
     import uvicorn
