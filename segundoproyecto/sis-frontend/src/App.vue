@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-8 bg-cover bg-center" style="background-image: url('https://r4.wallpaperflare.com/wallpaper/527/757/70/aesthetic-neon-wallpaper-0f0ae73eba21fd1c1d95d0b498beb0d0.jpg');">
+  <div class="relative flex flex-col items-center justify-center min-h-screen bg-gray-100 p-8 bg-cover bg-center" style="background-image: url('https://r4.wallpaperflare.com/wallpaper/527/757/70/aesthetic-neon-wallpaper-0f0ae73eba21fd1c1d95d0b498beb0d0.jpg');">
     <h1 class="text-4xl font-bold mb-8 text-white">Herramientas de Análisis de Datos</h1>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div @click="selectView('decision-tree')" :class="{'border-4 border-green-500': currentView === 'decision-tree'}" class="relative bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform cursor-pointer">
@@ -27,6 +27,19 @@
     <div class="mt-8 w-full">
       <component :is="currentViewComponent" />
     </div>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKmkNey4cUdmHoo8dvCmmV8_kyN_GHJU-v6A&s" alt="Imagen de Esquina" class="absolute top-4 right-4 w-16 h-16 rounded-full shadow-lg cursor-pointer" @click="showModal = true">
+    
+    <!-- Modal -->
+    <div v-if="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+      <div class="bg-white rounded-lg p-6 relative max-w-lg w-full mx-4">
+        <button @click="showModal = false" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <img src="https://64.media.tumblr.com/4d7cc5386d72cd3c2c249f9769b22a40/d6015055f684d9e6-36/s2048x3072/97227d0ff1c07fbaa0ded59bcdefb6e97912cf5b.jpg" alt="Imagen del Modal" class="max-w-full h-auto rounded-lg shadow-lg">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -45,7 +58,8 @@ export default {
   },
   data() {
     return {
-      currentView: ''
+      currentView: '',
+      showModal: false
     };
   },
   methods: {

@@ -19,19 +19,18 @@
       </div>
   
       <div v-if="selectedColumn" class="mt-4">
-        <input type="number" v-model="nClusters" class="border border-gray-300 rounded p-2" min="1" placeholder="Número de clusters (default: 3)" />
-      </div>
+    <label for="nClusters" class="block text-sm font-medium text-gray-700">Número de clusters</label>
+    <input type="number" id="nClusters" v-model="nClusters" class="border border-gray-300 rounded p-2" min="1" placeholder="Número de clusters (default: 3)" />
+</div>
   
       <button v-if="selectedColumn" @click="submitData" class="mt-4 bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition-colors">
         Subir datos
       </button>
   
       <div v-if="isLoading" class="mt-4 flex items-center justify-center">
-        <svg class="animate-spin h-8 w-8 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.963 7.963 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-      </div>
+  <img src="https://64.media.tumblr.com/be3ce7e4703c3e208790c3ed4249db99/0c7447b1cf7154b1-c4/s640x960/14fd1548c126d24b96e4731647c868ed26f1fdfe.gif" alt="Cargando..." class="h-16 w-16">
+  </div>
+
   
       <div v-if="clustersImage" class="mt-4 w-full">
         <ZoomImage :src="clustersImage" />
