@@ -37,7 +37,15 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
-        <img src="https://64.media.tumblr.com/4d7cc5386d72cd3c2c249f9769b22a40/d6015055f684d9e6-36/s2048x3072/97227d0ff1c07fbaa0ded59bcdefb6e97912cf5b.jpg" alt="Imagen del Modal" class="max-w-full h-auto rounded-lg shadow-lg">
+        <div class="text-center">
+          <h2 class="text-xl font-bold text-gray-700 mb-4">Descripción del Proyecto</h2>
+          <p class="text-gray-600 mb-2">Este proyecto está orientado a analizar datos utilizando tres métodos diferentes:</p>
+          <ul class="list-disc list-inside text-gray-600">
+            <li><strong>Árboles de Decisión:</strong> Crea y visualiza árboles de decisión para análisis predictivo.</li>
+            <li><strong>Clustering:</strong> Agrupa datos similares usando técnicas de clustering.</li>
+            <li><strong>Perceptrón:</strong> Entrena y evalúa modelos de perceptrón multicapa.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

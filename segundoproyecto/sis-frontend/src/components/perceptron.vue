@@ -19,23 +19,16 @@
     </div>
 
     <div v-if="selectedColumn" class="mt-4">
-  <label for="hidden-layers" class="block text-gray-700 font-bold mb-2">Dimensiones de las capas ocultas</label>
-  <input id="hidden-layers" type="text" v-model="hiddenLayers" class="border border-gray-300 rounded p-2 w-full" placeholder="Capas ocultas (ej. 2,3,2)" />
-</div>
-
+      <label for="hidden-layers" class="block text-gray-700 font-bold mb-2">Dimensiones de las capas ocultas</label>
+      <input id="hidden-layers" type="text" v-model="hiddenLayers" class="border border-gray-300 rounded p-2 w-full" placeholder="Capas ocultas (ej. 2,3,2)" />
+    </div>
 
     <button v-if="selectedColumn" @click="submitData" class="mt-4 bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition-colors">
       Subir datos
     </button>
 
     <div v-if="isLoading" class="mt-4 flex items-center justify-center">
-  <img src="https://64.media.tumblr.com/be3ce7e4703c3e208790c3ed4249db99/0c7447b1cf7154b1-c4/s640x960/14fd1548c126d24b96e4731647c868ed26f1fdfe.gif" alt="Cargando..." class="h-16 w-16">
-  </div>
-
-
-    <div v-if="report" class="mt-4 w-full">
-      <h3 class="font-bold">Reporte del Perceptrón Multicapa</h3>
-      <pre>{{ report }}</pre>
+      <img src="https://64.media.tumblr.com/be3ce7e4703c3e208790c3ed4249db99/0c7447b1cf7154b1-c4/s640x960/14fd1548c126d24b96e4731647c868ed26f1fdfe.gif" alt="Cargando..." class="h-16 w-16">
     </div>
 
     <div v-if="confusionMatrixImage" class="mt-4 w-full">
@@ -48,6 +41,13 @@
       <img :src="decisionBoundaryImage" alt="Decision Boundary" class="max-w-full"/>
     </div>
 
+    <div v-if="report" class="mt-4 w-full">
+      <a :href="reportDownloadLink" download="reporte_perceptron.txt" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition-colors inline-block mb-4">Descargar Informe</a>
+      <h3 class="font-bold">Reporte del Perceptrón Multicapa</h3>
+      <pre>{{ report }}</pre>
+    </div>
+
+
     <div v-if="errorMessage" class="mt-4 text-red-500">
       {{ errorMessage }}
     </div>
@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
 import Papa from 'papaparse';
 import axios from 'axios';
 import { DocumentIcon } from '@heroicons/vue/24/solid';
@@ -127,7 +127,15 @@ export default defineComponent({
       }
     };
 
-    return { columns, selectedColumn, hiddenLayers, fileRef, handleFileUpload, submitData, report, confusionMatrixImage, decisionBoundaryImage, isLoading, errorMessage };
+    const reportDownloadLink = computed(() => {
+      if (report.value) {
+        const blob = new Blob([report.value], { type: 'text/plain' });
+        return URL.createObjectURL(blob);
+      }
+      return '';
+    });
+
+    return { columns, selectedColumn, hiddenLayers, fileRef, handleFileUpload, submitData, report, reportDownloadLink, confusionMatrixImage, decisionBoundaryImage, isLoading, errorMessage };
   }
 });
 </script>
