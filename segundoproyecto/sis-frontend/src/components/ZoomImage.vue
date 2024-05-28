@@ -1,6 +1,6 @@
 <template>
   <div class="zoom-container" 
-       @mousedown="startDragging" 
+       @mousedown="handleMouseDown" 
        @mouseup="stopDragging" 
        @mouseleave="stopDragging"
        @mousemove="onMouseMove">
@@ -10,6 +10,7 @@
       ref="imageRef"
       class="zoom-image"
       @load="updateImageSize"
+      @dblclick="resetZoom"
       @dragstart.prevent
     />
   </div>
@@ -35,6 +36,7 @@ export default defineComponent({
     const isDragging = ref(false);
     const startX = ref(0);
     const startY = ref(0);
+    const clickCount = ref(0);
 
     const updateImageSize = () => {
       if (imageRef.value) {
@@ -42,20 +44,33 @@ export default defineComponent({
       }
     };
 
-    const startDragging = (event: MouseEvent) => {
+    const handleMouseDown = (event: MouseEvent) => {
       event.preventDefault(); // Prevent default dragging behavior
+      clickCount.value++;
+
+      if (clickCount.value === 1) {
+        setTimeout(() => {
+          if (clickCount.value === 1) {
+            startDragging(event);
+          }
+          clickCount.value = 0;
+        }, 200); // Espera 200ms para determinar si es un clic o doble clic
+      }
+    };
+
+    const startDragging = (event: MouseEvent) => {
       isDragging.value = true;
       startX.value = event.clientX;
       startY.value = event.clientY;
 
       if (scale.value === 1) {
+        // Zoom in
         const rect = imageRef.value?.getBoundingClientRect();
         if (!rect) return;
 
         const offsetX = event.clientX - rect.left;
         const offsetY = event.clientY - rect.top;
 
-        // Zoom in
         scale.value = 2;  // Or any desired zoom level
         originX.value = (offsetX / rect.width) * 100;
         originY.value = (offsetY / rect.height) * 100;
@@ -83,6 +98,13 @@ export default defineComponent({
       }
     };
 
+    const resetZoom = () => {
+      // Reset zoom
+      scale.value = 1;
+      originX.value = 50;
+      originY.value = 50;
+    };
+
     const imageStyles = computed(() => ({
       transform: `scale(${scale.value})`,
       transformOrigin: `${originX.value}% ${originY.value}%`,
@@ -95,9 +117,11 @@ export default defineComponent({
       imageRef,
       containerRef,
       imageStyles,
+      handleMouseDown,
       startDragging,
       stopDragging,
       onMouseMove,
+      resetZoom,
       updateImageSize
     };
   }
