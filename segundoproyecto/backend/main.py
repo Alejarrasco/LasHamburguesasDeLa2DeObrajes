@@ -6,7 +6,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.decomposition import PCA
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix, classification_report
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
@@ -155,20 +155,20 @@ def generate_clusters_image(df, target_column, n_clusters=3):
     print("Clusters visualization saved as temp_clusters.png")
     return "temp_clusters.png"
 
-def train_multilayer_perceptron(df, target_column=None, hidden_layers=2, maxiter=100):
+def train_multilayer_perceptron(df, target_column, hidden_layers, max_iter):
     print("Training Multilayer Perceptron model...")
     # Train Multilayer Perceptron model
     X = df.drop(columns=[target_column])
     y = df[target_column]
     
-    clf = MLPClassifier(hidden_layer_sizes=(hidden_layers, hidden_layers), max_iter=maxiter)
+    clf = MLPClassifier(hidden_layer_sizes=hidden_layers, max_iter=max_iter)
     clf.fit(X, y)
 
     return clf
 
 def generate_report(clf, X, y):
     """
-    Generate a txt report with the weigths of each layer
+    Generate a txt report with the weights of each layer
     The accuracy of the model
     The confusion matrix
     The classification report
@@ -196,6 +196,47 @@ def generate_report(clf, X, y):
 
     return "temp_report.txt"
 
+def plot_confusion_matrix(clf, X, y):
+    cm = confusion_matrix(y, clf.predict(X))
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+    disp.plot()
+    plt.title("Confusion Matrix")
+    plt.savefig("temp_confusion_matrix.png")
+    plt.close()
+    return "temp_confusion_matrix.png"
+
+def plot_decision_boundary(clf, X, y):
+    h = .02  # step size in the mesh
+
+    # Create color maps
+    cmap_light = plt.cm.Pastel2
+    cmap_bold = plt.cm.Dark2
+
+    # we only take the first two features for visualization
+    X = X.iloc[:, :2].values
+    y = y.values
+
+    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+    y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, h),
+                         np.arange(y_min, y_max, h))
+
+    Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
+
+    Z = Z.reshape(xx.shape)
+    plt.figure()
+    plt.contourf(xx, yy, Z, cmap=cmap_light)
+
+    # Plot also the training points
+    plt.scatter(X[:, 0], X[:, 1], c=y, cmap=cmap_bold,
+                edgecolor='k', s=20)
+    plt.xlim(xx.min(), xx.max())
+    plt.ylim(yy.min(), yy.max())
+    plt.title("Decision boundary of MLP")
+
+    plt.savefig("temp_decision_boundary.png")
+    plt.close()
+    return "temp_decision_boundary.png"
 
 @app.post("/decision_tree/")
 async def decision_tree(file: UploadFile = File(...), target_column: str = Query(...)):
@@ -246,8 +287,11 @@ async def kmeans_clusters(file: UploadFile = File(...), target_column: str = Que
     return {"clusters_image": image_data}
 
 @app.post("/multilayer-perceptron/")
-async def multilayer_perceptron(file: UploadFile = File(...), target_column: str = Query(...), hidden_layers: int = Query(2)):
+async def multilayer_perceptron(file: UploadFile = File(...), target_column: str = Query(...), hidden_layers: str = Query("2,2"), max_iter: int = Query(100)):
     try:
+        # Convert the hidden_layers string to a tuple of integers
+        hidden_layers_tuple = tuple(map(int, hidden_layers.split(',')))
+        
         # Load the data
         df = await load_data_file(file)
     
@@ -255,14 +299,28 @@ async def multilayer_perceptron(file: UploadFile = File(...), target_column: str
         df = preprocess_data(df, target_column)
 
         # Generate the txt report
-        clf = train_multilayer_perceptron(df, target_column, hidden_layers)
+        clf = train_multilayer_perceptron(df, target_column, hidden_layers_tuple, max_iter)
         X = df.drop(columns=[target_column])
         y = df[target_column]
         report_path = generate_report(clf, X, y)
+        confusion_matrix_path = plot_confusion_matrix(clf, X, y)
 
-        # Respond with report file
+        # Only plot decision boundary if there are two features
+        if X.shape[1] == 2:
+            decision_boundary_path = plot_decision_boundary(clf, X, y)
+        else:
+            decision_boundary_path = None
+
+        # Respond with report and images
         with open(report_path, "rb") as report_file:
             report_data = base64.b64encode(report_file.read()).decode("utf-8")
+        with open(confusion_matrix_path, "rb") as cm_file:
+            cm_data = base64.b64encode(cm_file.read()).decode("utf-8")
+        if decision_boundary_path:
+            with open(decision_boundary_path, "rb") as db_file:
+                db_data = base64.b64encode(db_file.read()).decode("utf-8")
+        else:
+            db_data = None
 
     except Exception as e:
         print(e)
@@ -270,8 +328,7 @@ async def multilayer_perceptron(file: UploadFile = File(...), target_column: str
     
     remove_temp_files()
 
-    return {"report": report_data}
-
+    return {"report": report_data, "confusion_matrix": cm_data, "decision_boundary": db_data}
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)
