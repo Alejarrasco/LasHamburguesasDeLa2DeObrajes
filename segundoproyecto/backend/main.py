@@ -2,6 +2,9 @@ from fastapi import FastAPI, File, HTTPException, UploadFile, Query
 from fastapi.middleware.cors import CORSMiddleware
 import numpy as np
 from sklearn.cluster import KMeans
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB
 from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
@@ -238,6 +241,104 @@ def plot_decision_boundary(clf, X, y):
     plt.close()
     return "temp_decision_boundary.png"
 
+
+def train_logistic_regression(df, target_column):
+    print("Training Logistic Regression model...")
+    # Train Logistic Regression model
+    X = df.drop(columns=[target_column])
+    y = df[target_column]
+
+    if len(y.unique()) > 2:
+        raise ValueError("Logistic Regression only supports binary classification")
+    
+    clf = LogisticRegression()
+    clf.fit(X, y)
+
+    return clf
+
+def generate_logistic_regression_report(clf, X, y):
+    report = "Logistic Regression Report\n\n"
+    report += "Coefficients:\n"
+    report += str(clf.coef_) + "\n\n"
+
+    report += "Intercept:\n"
+    report += str(clf.intercept_) + "\n\n"
+
+    report += "Accuracy: " + str(clf.score(X, y)) + "\n\n"
+
+    report += "Confusion Matrix:\n"
+    report += str(confusion_matrix(y, clf.predict(X))) + "\n\n"
+
+    report += "Classification Report:\n"
+    report += classification_report(y, clf.predict(X)) + "\n\n"
+
+    # Save to a txt file
+    with open("temp_report.txt", "w") as file:
+        file.write(report)
+
+    return "temp_report.txt"
+
+def train_random_forest(df, target_column, n_estimators=100):
+    print("Training Random Forest model...")
+    # Train Random Forest model
+    X = df.drop(columns=[target_column])
+    y = df[target_column]
+
+    if n_estimators < 1 or n_estimators > 200:
+        raise ValueError("Number of estimators must be between 1 and 200")
+
+    clf = RandomForestClassifier(n_estimators=n_estimators)
+    clf.fit(X, y)
+
+    return clf
+
+
+def generate_random_forest_report(clf, X, y):
+    report = "Random Forest Report\n\n"
+    report += "Feature Importances:\n"
+    report += str(clf.feature_importances_) + "\n\n"
+
+    report += "Accuracy: " + str(clf.score(X, y)) + "\n\n"
+
+    report += "Confusion Matrix:\n"
+    report += str(confusion_matrix(y, clf.predict(X))) + "\n\n"
+
+    report += "Classification Report:\n"
+    report += classification_report(y, clf.predict(X)) + "\n\n"
+
+    # Save to a txt file
+    with open("temp_report.txt", "w") as file:
+        file.write(report)
+
+    return "temp_report.txt"
+
+def train_NB_classifier(df, target_column):
+    print("Training Naive Bayes model...")
+    # Train Naive Bayes model
+    X = df.drop(columns=[target_column])
+    y = df[target_column]
+
+    clf = GaussianNB()
+    clf.fit(X, y)
+
+    return clf
+
+def generate_NB_report(clf, X, y):
+    report = "Naive Bayes Report\n\n"
+    report += "Accuracy: " + str(clf.score(X, y)) + "\n\n"
+
+    report += "Confusion Matrix:\n"
+    report += str(confusion_matrix(y, clf.predict(X))) + "\n\n"
+
+    report += "Classification Report:\n"
+    report += classification_report(y, clf.predict(X)) + "\n\n"
+
+    # Save to a txt file
+    with open("temp_report.txt", "w") as file:
+        file.write(report)
+
+    return "temp_report.txt"
+
 @app.post("/decision_tree/")
 async def decision_tree(file: UploadFile = File(...), target_column: str = Query(...)):
     try:
@@ -298,10 +399,14 @@ async def multilayer_perceptron(file: UploadFile = File(...), target_column: str
         # Preprocess the data
         df = preprocess_data(df, target_column)
 
+        # split the data into train and test
+        df_train = df.sample(frac=0.8)
+        df_test = df.drop(df_train.index)
+
         # Generate the txt report
-        clf = train_multilayer_perceptron(df, target_column, hidden_layers_tuple, max_iter)
-        X = df.drop(columns=[target_column])
-        y = df[target_column]
+        clf = train_multilayer_perceptron(df_train, target_column, hidden_layers_tuple, max_iter)
+        X = df_test.drop(columns=[target_column])
+        y = df_test[target_column]
         report_path = generate_report(clf, X, y)
         confusion_matrix_path = plot_confusion_matrix(clf, X, y)
 
@@ -329,6 +434,107 @@ async def multilayer_perceptron(file: UploadFile = File(...), target_column: str
     remove_temp_files()
 
     return {"report": report_data, "confusion_matrix": cm_data, "decision_boundary": db_data}
+
+@app.post("/logistic-regression/")
+async def logistic_regression(file: UploadFile = File(...), target_column: str = Query(...)):
+    try:
+        # Load the data
+        df = await load_data_file(file)
+    
+        # Preprocess the data
+        df = preprocess_data(df, target_column)
+
+        # Split the data into train and test
+        df_train = df.sample(frac=0.8)
+        df_test = df.drop(df_train.index)
+
+        # Train the model
+        clf = train_logistic_regression(df_train, target_column)
+
+        # Generate the report
+        X = df_test.drop(columns=[target_column])
+        y = df_test[target_column]
+        report_path = generate_logistic_regression_report(clf, X, y)
+
+        # Respond with report
+        with open(report_path, "rb") as report_file:
+            report_data = base64.b64encode(report_file.read()).decode("utf-8")
+
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=400, detail=str(e))
+    
+    remove_temp_files()
+
+    return {"report": report_data}
+
+
+@app.post("/random-forest/")
+async def random_forest(file: UploadFile = File(...), target_column: str = Query(...), n_estimators: int = Query(100)):
+    try:
+        # Load the data
+        df = await load_data_file(file)
+    
+        # Preprocess the data
+        df = preprocess_data(df, target_column)
+
+        # Split the data into train and test
+        df_train = df.sample(frac=0.8)
+        df_test = df.drop(df_train.index)
+
+        # Train the model
+        clf = train_random_forest(df_train, target_column, n_estimators)
+
+        # Generate the report
+        X = df_test.drop(columns=[target_column])
+        y = df_test[target_column]
+        report_path = generate_random_forest_report(clf, X, y)
+
+        # Respond with report
+        with open(report_path, "rb") as report_file:
+            report_data = base64.b64encode(report_file.read()).decode("utf-8")
+
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=400, detail=str(e))
+    
+    remove_temp_files()
+
+    return {"report": report_data}
+
+@app.post("/naive-bayes/")
+async def naive_bayes(file: UploadFile = File(...), target_column: str = Query(...)):
+    try:
+        # Load the data
+        df = await load_data_file(file)
+    
+        # Preprocess the data
+        df = preprocess_data(df, target_column)
+
+        # Split the data into train and test
+        df_train = df.sample(frac=0.8)
+        df_test = df.drop(df_train.index)
+
+        # Train the model
+        clf = train_NB_classifier(df_train, target_column)
+
+        # Generate the report
+        X = df_test.drop(columns=[target_column])
+        y = df_test[target_column]
+        report_path = generate_NB_report(clf, X, y)
+
+        # Respond with report
+        with open(report_path, "rb") as report_file:
+            report_data = base64.b64encode(report_file.read()).decode("utf-8")
+
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=400, detail=str(e))
+    
+    remove_temp_files()
+
+    return {"report": report_data}
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)
