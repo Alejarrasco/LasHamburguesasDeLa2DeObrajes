@@ -456,9 +456,20 @@ async def logistic_regression(file: UploadFile = File(...), target_column: str =
         y = df_test[target_column]
         report_path = generate_logistic_regression_report(clf, X, y)
 
+        # If there are only two features, plot the decision boundary
+        if X.shape[1] == 2:
+            decision_boundary_path = plot_decision_boundary(clf, X, y)
+        else:
+            decision_boundary_path = None
+
         # Respond with report
         with open(report_path, "rb") as report_file:
             report_data = base64.b64encode(report_file.read()).decode("utf-8")
+        if decision_boundary_path:
+            with open(decision_boundary_path, "rb") as db_file:
+                db_data = base64.b64encode(db_file.read()).decode("utf-8")
+        else:
+            db_data = None
 
     except Exception as e:
         print(e)
@@ -466,7 +477,7 @@ async def logistic_regression(file: UploadFile = File(...), target_column: str =
     
     remove_temp_files()
 
-    return {"report": report_data}
+    return {"report": report_data, "decision_boundary": db_data}
 
 
 @app.post("/random-forest/")
