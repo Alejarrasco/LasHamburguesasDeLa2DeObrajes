@@ -1,7 +1,7 @@
 <template>
   <div class="relative flex flex-col items-center justify-center min-h-screen bg-gray-100 p-8 bg-cover bg-center" style="background-image: url('https://r4.wallpaperflare.com/wallpaper/527/757/70/aesthetic-neon-wallpaper-0f0ae73eba21fd1c1d95d0b498beb0d0.jpg');">
     <h1 class="text-4xl font-bold mb-8 text-white">Herramientas de Análisis de Datos</h1>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
       <div @click="selectView('decision-tree')" :class="{'border-4 border-green-500': currentView === 'decision-tree'}" class="relative bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform cursor-pointer">
         <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('/path/to/your/decision-tree.jpg');"></div>
         <div class="relative p-6 text-center">
@@ -23,6 +23,27 @@
           <p class="text-gray-600">Entrena y evalúa modelos de perceptrón multicapa.</p>
         </div>
       </div>
+      <div @click="selectView('naive-bayes')" :class="{'border-4 border-green-500': currentView === 'naive-bayes'}" class="relative bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform cursor-pointer">
+        <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('/path/to/your/naive-bayes.jpg');"></div>
+        <div class="relative p-6 text-center">
+          <h2 class="text-xl font-bold text-gray-700 mb-2">Naive Bayes</h2>
+          <p class="text-gray-600">Clasificación basada en el algoritmo Naive Bayes.</p>
+        </div>
+      </div>
+      <div @click="selectView('random-forest')" :class="{'border-4 border-green-500': currentView === 'random-forest'}" class="relative bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform cursor-pointer">
+        <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('/path/to/your/random-forest.jpg');"></div>
+        <div class="relative p-6 text-center">
+          <h2 class="text-xl font-bold text-gray-700 mb-2">Random Forest</h2>
+          <p class="text-gray-600">Entrena y evalúa modelos de Random Forest.</p>
+        </div>
+      </div>
+      <div @click="selectView('logistic-regression')" :class="{'border-4 border-green-500': currentView === 'logistic-regression'}" class="relative bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform cursor-pointer">
+        <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('/path/to/your/logistic-regression.jpg');"></div>
+        <div class="relative p-6 text-center">
+          <h2 class="text-xl font-bold text-gray-700 mb-2">Regresión Logística</h2>
+          <p class="text-gray-600">Análisis predictivo con regresión logística.</p>
+        </div>
+      </div>
     </div>
     <div class="mt-8 w-full">
       <component :is="currentViewComponent" />
@@ -39,11 +60,14 @@
         </button>
         <div class="text-center">
           <h2 class="text-xl font-bold text-gray-700 mb-4">Descripción del Proyecto</h2>
-          <p class="text-gray-600 mb-2">Este proyecto está orientado a analizar datos utilizando tres métodos diferentes:</p>
+          <p class="text-gray-600 mb-2">Este proyecto está orientado a analizar datos utilizando seis métodos diferentes:</p>
           <ul class="list-disc list-inside text-gray-600">
             <li><strong>Árboles de Decisión:</strong> Crea y visualiza árboles de decisión para análisis predictivo.</li>
             <li><strong>Clustering:</strong> Agrupa datos similares usando técnicas de clustering.</li>
             <li><strong>Perceptrón:</strong> Entrena y evalúa modelos de perceptrón multicapa.</li>
+            <li><strong>Naive Bayes:</strong> Clasificación basada en el algoritmo Naive Bayes.</li>
+            <li><strong>Random Forest:</strong> Entrena y evalúa modelos de Random Forest.</li>
+            <li><strong>Regresión Logística:</strong> Análisis predictivo con regresión logística.</li>
           </ul>
         </div>
       </div>
@@ -52,17 +76,22 @@
 </template>
 
 <script>
-import PerceptronUploader from './components/perceptron.vue';
 import Arbol from './components/arbol.vue';
 import Clustering from './components/clustering.vue';
 import Perceptron from './components/perceptron.vue';
+import NaiveBayesUploader from './components/naive.vue';
+import RandomForestUploader from './components/randomfo.vue';
+import LogisticRegressionUploader from './components/regresion.vue';
 
 export default {
   name: 'App',
   components: {
     Arbol,
     Clustering,
-    Perceptron
+    Perceptron,
+    NaiveBayesUploader,
+    RandomForestUploader,
+    LogisticRegressionUploader,
   },
   data() {
     return {
@@ -79,11 +108,17 @@ export default {
     currentViewComponent() {
       switch (this.currentView) {
         case 'decision-tree':
-          return 'arbol';
+          return 'Arbol';
         case 'clustering':
-          return 'clustering';
+          return 'Clustering';
         case 'perceptron':
-          return 'perceptron';
+          return 'Perceptron';
+        case 'naive-bayes':
+          return 'NaiveBayesUploader';
+        case 'random-forest':
+          return 'RandomForestUploader';
+        case 'logistic-regression':
+          return 'LogisticRegressionUploader';
         default:
           return {
             template: '<div class="text-center text-gray-700">Seleccione una opción para comenzar</div>'
